@@ -16,3 +16,15 @@ class SageCell(Directive):
     option_spec = {
         "linked": directives.unchanged
     }
+
+    def run(self):
+
+        if "linked" in self.options:
+            linked_option = self.options.get("linked")
+        else:
+            linked_option = None # TODO: sagecell_linked_option var from conf.py
+        content = "\n".join(self.content)
+        node = sagecell()
+        node['content'] = content
+        node['linked_option'] = linked_option
+        return [node]
