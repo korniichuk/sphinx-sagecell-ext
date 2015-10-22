@@ -33,7 +33,7 @@ setup(
     license = "Public Domain",
     long_description = open(join(dirname(__file__), "README.rst")).read(),
     name = "sphinx-sagecell-ext",
-    packages = ["sagecell"],
+    packages = ["sphinx-sagecell-ext"],
     platforms = ["Linux"],
     url = "https://github.com/korniichuk/sphinx-sagecell-ext",
     version = "0.1a1",
