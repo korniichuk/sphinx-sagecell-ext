@@ -49,7 +49,7 @@ def depart_sagecell_node(self, node):
 def setup(app):
 
     # Register a configuration value
-    app.add_config_value('sagecell_default_linked', True, 'html')
+    app.add_config_value('sagecell_default_linked', True, True)
     # Register a Docutils node class
     app.add_node(sagecell,
                  html=(visit_sagecell_node, depart_sagecell_node))
