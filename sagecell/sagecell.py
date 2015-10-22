@@ -22,9 +22,26 @@ class SageCell(Directive):
         if "linked" in self.options:
             linked_option = self.options.get("linked")
         else:
-            linked_option = None # TODO: sagecell_linked_option var from conf.py
+            linked_option = None # TODO sagecell_linked_option var from conf.py
         content = "\n".join(self.content)
         node = sagecell()
         node['content'] = content
         node['linked_option'] = linked_option
         return [node]
+
+def visit_sagecell_node(self, node):
+
+    if node['linked_option'] == "true":
+        self.body.append("<div class='sage_linked'>")
+    elif node['linked_option'] == "false":
+        self.body.append("<div class='sage_unlinked'>")
+    else:
+        pass # TODO sagecell_linked_option var from conf.py
+    self.body.append("<script type='text/x-sage'>")
+    self.body.append(node['content'])
+    self.body.append("</script>")
+    self.body.append("</div>")
+
+
+def depart_sagecell_node(self, node):
+    pass
