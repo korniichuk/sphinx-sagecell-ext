@@ -21,11 +21,9 @@ class SageCell(Directive):
 
     def run(self):
 
-        linked = self.options.get("linked")
-        content = "\n".join(self.content)
         node = sagecell()
-        node['linked'] = linked
-        node['content'] = content
+        node['content'] = "\n".join(self.content)
+        node['linked'] = self.options.get("linked")
         return [node]
 
 def visit_sagecell_node(self, node):
