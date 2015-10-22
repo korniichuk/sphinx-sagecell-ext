@@ -27,7 +27,7 @@ setup(
     description = ("The Sphinx extension "
                    "embedding a Sage cell into a webpage"),
     download_url = ("https://github.com/korniichuk/sphinx-sagecell-ext/"
-                    "archive/0.1.zip",
+                    "archive/0.1.zip"),
     include_package_data = True,
     keywords = ["extension", "python2", "sagecell", "sphinx",
                 "sphinx-sagecell-ext"],
