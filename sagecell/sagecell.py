@@ -45,3 +45,11 @@ def visit_sagecell_node(self, node):
 
 def depart_sagecell_node(self, node):
     pass
+
+def setup(app):
+
+    app.add_config_value('sagecell_linked_option', True, 'html')
+    app.add_node(sagecell,
+                 html=(visit_sagecell_node, depart_sagecell_node))
+
+    app.add_directive("sagecell", SageCell)
