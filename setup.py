@@ -29,7 +29,8 @@ setup(
     download_url = ("https://github.com/korniichuk/sphinx-sagecell-ext/"
                     "archive/0.1.zip",
     include_package_data = True,
-    keywords = ["extension", "python2", "sagecell", "sphinx"],
+    keywords = ["extension", "python2", "sagecell", "sphinx",
+                "sphinx-sagecell-ext"],
     license = "Public Domain",
     long_description = open(join(dirname(__file__), "README.rst")).read(),
     name = "sphinx-sagecell-ext",
