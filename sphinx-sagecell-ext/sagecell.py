@@ -4,6 +4,8 @@ from docutils.nodes import Element, General
 from docutils.parsers.rst import directives
 from sphinx.util.compat import Directive
 
+linked = True # The default value for 'Linked Cells' option
+
 class sagecell(General, Element):
     pass
 
@@ -19,24 +21,27 @@ class SageCell(Directive):
 
     def run(self):
 
-        if "linked" in self.options:
-            linked = self.options.get("linked")
-        else:
-            linked = None # TODO: sagecell_default_linked var from conf.py
+        linked = self.options.get("linked")
         content = "\n".join(self.content)
         node = sagecell()
-        node['content'] = content
         node['linked'] = linked
+        node['content'] = content
         return [node]
 
 def visit_sagecell_node(self, node):
+
+    global linked
 
     if node['linked'] == "true":
         self.body.append("<div class='sage_linked'>")
     elif node['linked'] == "false":
         self.body.append("<div class='sage_unlinked'>")
+    elif linked == True:
+        self.body.append("<div class='sage_linked'>")
+    elif linked == False:
+        self.body.append("<div class='sage_unlinked'>")
     else:
-        pass # TODO sagecell_default_linked var from conf.py
+        self.body.append("<div class='sage_unlinked'>")
     self.body.append("<script type='text/x-sage'>")
     self.body.append(node['content'])
     self.body.append("</script>")
@@ -48,8 +53,6 @@ def depart_sagecell_node(self, node):
 
 def setup(app):
 
-    # Register a configuration value
-    app.add_config_value('sagecell_default_linked', True, True)
     # Register a Docutils node class
     app.add_node(sagecell,
                  html=(visit_sagecell_node, depart_sagecell_node))
