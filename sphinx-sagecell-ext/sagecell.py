@@ -20,23 +20,23 @@ class SageCell(Directive):
     def run(self):
 
         if "linked" in self.options:
-            linked_option = self.options.get("linked")
+            linked = self.options.get("linked")
         else:
-            linked_option = None # TODO sagecell_linked_option var from conf.py
+            linked = None # TODO: sagecell_default_linked var from conf.py
         content = "\n".join(self.content)
         node = sagecell()
         node['content'] = content
-        node['linked_option'] = linked_option
+        node['linked'] = linked
         return [node]
 
 def visit_sagecell_node(self, node):
 
-    if node['linked_option'] == "true":
+    if node['linked'] == "true":
         self.body.append("<div class='sage_linked'>")
-    elif node['linked_option'] == "false":
+    elif node['linked'] == "false":
         self.body.append("<div class='sage_unlinked'>")
     else:
-        pass # TODO sagecell_linked_option var from conf.py
+        pass # TODO sagecell_default_linked var from conf.py
     self.body.append("<script type='text/x-sage'>")
     self.body.append(node['content'])
     self.body.append("</script>")
@@ -48,8 +48,10 @@ def depart_sagecell_node(self, node):
 
 def setup(app):
 
-    app.add_config_value('sagecell_linked_option', True, 'html')
+    # Register a configuration value
+    app.add_config_value('sagecell_default_linked', True, 'html')
+    # Register a Docutils node class
     app.add_node(sagecell,
                  html=(visit_sagecell_node, depart_sagecell_node))
-
+    # Register a Docutils directive
     app.add_directive("sagecell", SageCell)
