@@ -1,2 +1,2 @@
-include LICENSE.txt README.rst
+include layout.html LICENSE.txt README.rst
 recursive-include sphinx-sagecell-ext *.py
