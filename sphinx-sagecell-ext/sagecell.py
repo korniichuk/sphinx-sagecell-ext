@@ -45,7 +45,6 @@ def visit_sagecell_node(self, node):
     self.body.append("</script>")
     self.body.append("</div>")
 
-
 def depart_sagecell_node(self, node):
     pass
 
