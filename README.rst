@@ -1,5 +1,5 @@
 .. contents:: Table of contents
-   :depth: 2
+   :depth: 3
 
 Installation
 ============
@@ -94,3 +94,25 @@ Second, change the next code from::
 to::
 
     linked = True
+
+Example
+^^^^^^^
+::
+
+    .. sagecell::
+       :linked: true
+
+       x = "first cell"
+
+    .. sagecell::
+       :linked: false
+
+       x = "second cell"
+
+    .. sagecell::
+       :linked: true
+
+       x
+
+.. image:: ./img/options-_linked_cells_0001_728px.png
+  :alt: options: linked_cells [prtscn]
