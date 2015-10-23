@@ -66,3 +66,31 @@ The following is some example usage::
     .. sagecell::
 
        sphere()
+
+Options
+=======
+The key/value pairs serve as the configuration of the created Sage Cell instance. The following options can be set when embedding:
+
+Linked cells
+------------
+When multiple input locations are given, this sets whether the code from these cells is to be executed from the same kernel, so that code executed in one will affect the execution of code from another cell::
+
+    .. sagecell::
+       :linked: true
+
+    .. sagecell::
+       :linked: false
+
+.. note:: This option is false by default.
+
+For changing the default value. First, open the ``/usr/local/lib/python2.7/dist-packages/sphinx-sagecell-ext/sagecell.py`` file::
+
+    $ sudo gedit /usr/local/lib/python2.7/dist-packages/sphinx-sagecell-ext/sagecell.py
+
+Second, change the next code from::
+
+    linked = False
+
+to::
+
+    linked = True
