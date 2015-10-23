@@ -1,2 +1,3 @@
 include layout.html LICENSE.txt README.rst
+recursive-include img *.png
 recursive-include sphinx-sagecell-ext *.py
