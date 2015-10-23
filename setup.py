@@ -7,7 +7,7 @@ setup(
     author = "Ruslan Korniichuk",
     author_email = "ruslan.korniichuk@gmail.com",
     classifiers = [
-        "Development Status :: 4 - Beta",
+        "Development Status :: 5 - Production/Stable",
         "Environment :: Console",
         "Framework :: Sphinx",
         "Framework :: Sphinx :: Extension",
@@ -40,6 +40,6 @@ setup(
     packages = ["sphinx-sagecell-ext"],
     platforms = ["Linux"],
     url = "https://github.com/korniichuk/sphinx-sagecell-ext",
-    version = "0.1b1",
+    version = "0.1rc1",
     zip_safe = True
 )
