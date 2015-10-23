@@ -58,3 +58,11 @@ Example::
     extensions = [
         'sphinx-sagecell-ext.sagecell'
     ]
+
+Usage
+=====
+The following is some example usage::
+
+    .. sagecell::
+
+       sphere()
