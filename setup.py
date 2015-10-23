@@ -29,6 +29,9 @@ setup(
     download_url = ("https://github.com/korniichuk/sphinx-sagecell-ext/"
                     "archive/0.1.zip"),
     include_package_data = True,
+    install_requires = [
+        "Sphinx"
+    ],
     keywords = ["extension", "python2", "sagecell", "sphinx",
                 "sphinx-sagecell-ext"],
     license = "Public Domain",
