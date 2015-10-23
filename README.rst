@@ -30,3 +30,11 @@ Uninstall the sphinx-sagecell-ext
 ::
 
     $ sudo pip uninstall sphinx-sagecell-ext
+
+Development installation
+========================
+::
+
+    $ git clone git://github.com/korniichuk/sphinx-sagecell-ext.git
+    $ cd sphinx-sagecell-ext
+    $ sudo pip install .
