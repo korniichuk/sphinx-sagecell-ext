@@ -41,7 +41,13 @@ Development installation
 
 Quickstart
 ==========
-**First**, copy ``layout.html`` file to ``_templates`` documentation directory::
+**First**, add ``sphinx-sagecell-ext.sagecell`` extension to ``conf.py`` documentation file:::
+
+    extensions = [
+        'sphinx-sagecell-ext.sagecell'
+    ]
+
+**Second**, copy ``layout.html`` file to ``_templates`` documentation directory::
 
     $ wget -P DEST https://raw.githubusercontent.com/korniichuk/sphinx-sagecell-ext/master/layout.html
 
@@ -53,17 +59,11 @@ Example::
 
     $ wget -P ~/sphinx-sagecell-ext/source/_templates https://raw.githubusercontent.com/korniichuk/sphinx-sagecell-ext/master/layout.html
 
-**Second**, add ``sphinx-sagecell-ext.sagecell`` extension to ``conf.py`` documentation file:::
-
-    extensions = [
-        'sphinx-sagecell-ext.sagecell'
-    ]
-
 Usage
 =====
 The following is some example usage::
 
-    .. sagecell::
+    .. sagecellserver::
 
        sphere()
 
@@ -75,13 +75,13 @@ Linked cells
 ------------
 When multiple input locations are given, this sets whether the code from these cells is to be executed from the same kernel, so that code executed in one will affect the execution of code from another cell::
 
-    .. sagecell::
+    .. sagecellserver::
        :linked: true
 
-    .. sagecell::
+    .. sagecellserver::
        :linked: false
 
-.. note:: This option is false by default.
+.. note:: This option is true by default.
 
 For changing the default value. First, open the ``/usr/local/lib/python2.7/dist-packages/sphinx-sagecell-ext/sagecell.py`` file::
 
@@ -89,27 +89,27 @@ For changing the default value. First, open the ``/usr/local/lib/python2.7/dist-
 
 Second, change the next code from::
 
-    linked = False
+    linked = True
 
 to::
 
-    linked = True
+    linked = False
 
 Example
 ^^^^^^^
 ::
 
-    .. sagecell::
+    .. sagecellserver::
        :linked: true
 
        x = "first cell"
 
-    .. sagecell::
+    .. sagecellserver::
        :linked: false
 
        x = "second cell"
 
-    .. sagecell::
+    .. sagecellserver::
        :linked: true
 
        x
