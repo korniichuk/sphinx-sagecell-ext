@@ -4,7 +4,7 @@ from docutils.nodes import Element, General
 from docutils.parsers.rst import directives
 from sphinx.util.compat import Directive
 
-linked = False # The default value for 'Linked Cells' option
+linked = True # The default value for 'Linked Cells' option
 
 class sagecell(General, Element):
     pass
@@ -54,4 +54,4 @@ def setup(app):
     app.add_node(sagecell,
                  html=(visit_sagecell_node, depart_sagecell_node))
     # Register a Docutils directive
-    app.add_directive("sagecell", SageCell)
+    app.add_directive("sagecellserver", SageCell)
