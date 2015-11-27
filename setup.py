@@ -40,6 +40,6 @@ setup(
     packages = ["sphinx-sagecell-ext"],
     platforms = ["Linux"],
     url = "https://github.com/korniichuk/sphinx-sagecell-ext",
-    version = "0.1rc2",
+    version = "0.1rc3",
     zip_safe = True
 )
