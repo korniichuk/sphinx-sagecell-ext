@@ -91,7 +91,8 @@ When multiple input locations are given, this sets whether the code from these c
 
 For changing the default value. First, open the ``/usr/local/lib/python2.7/dist-packages/sphinx-sagecell-ext/sagecell.py`` file::
 
-    $ sudo gedit /usr/local/lib/python2.7/dist-packages/sphinx-sagecell-ext/sagecell.py
+    $ sudo gedit \
+    /usr/local/lib/python2.7/dist-packages/sphinx-sagecell-ext/sagecell.py
 
 Second, change the next code from::
 
