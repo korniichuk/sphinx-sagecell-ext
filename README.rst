@@ -13,7 +13,8 @@ Install the sphinx-sagecell-ext from GitHub
 -------------------------------------------
 ::
 
-    $ sudo pip install git+git://github.com/korniichuk/sphinx-sagecell-ext#egg=sphinx-sagecell-ext
+    $ sudo pip install \
+    git+git://github.com/korniichuk/sphinx-sagecell-ext#egg=sphinx-sagecell-ext
 
 Upgrade the sphinx-sagecell-ext from PyPI
 -----------------------------------------
@@ -49,7 +50,10 @@ Quickstart
 
 **Second**, copy ``layout.html`` file to ``_templates`` documentation directory::
 
-    $ wget -P DEST https://raw.githubusercontent.com/korniichuk/sphinx-sagecell-ext/master/layout.html
+    $ url1=https://raw.githubusercontent.com/
+    $ url2=korniichuk/sphinx-sagecell-ext/master/layout.html
+    $ wget -P DEST $url1$url2
+
 
 Where:
 
@@ -57,7 +61,9 @@ Where:
 
 Example::
 
-    $ wget -P ~/sphinx-sagecell-ext/source/_templates https://raw.githubusercontent.com/korniichuk/sphinx-sagecell-ext/master/layout.html
+    $ url1=https://raw.githubusercontent.com/korniichuk/
+    $ url2=sphinx-sagecell-ext/master/layout.html
+    $ wget -P ~/sphinx-sagecell-ext/source/_templates $url1$url2
 
 Usage
 =====
